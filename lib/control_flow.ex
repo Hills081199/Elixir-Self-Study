@@ -151,7 +151,6 @@ defmodule Control do
     end
 
   def divide_numbers(a, b) do
-    def divide_numbers(a, b) do
       with {:ok, _} <- check_non_zero(b),
            {:ok, result} <- perform_division(a, b) do
         {:ok, result}
@@ -159,13 +158,12 @@ defmodule Control do
         :error -> {:error, "Cannot divide by zero"}
         {:error, _} -> {:error, "Invalid input"}
       end
-    end
-
-    defp check_non_zero(0), do: :error
-    defp check_non_zero(_), do: {:ok, "Valid number"}
-
-    defp perform_division(a, b) when is_number(a) and is_number(b), do: {:ok, a / b}
-    defp perform_division(_, _), do: {:error, "Invalid input"}
   end
+
+  defp check_non_zero(0), do: :error
+  defp check_non_zero(_), do: {:ok, "Valid number"}
+
+  defp perform_division(a, b) when is_number(a) and is_number(b), do: {:ok, a / b}
+  defp perform_division(_, _), do: {:error, "Invalid input"}
 
 end
